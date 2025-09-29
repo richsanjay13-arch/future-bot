@@ -1,0 +1,14 @@
+services:
+  future-bot-backend:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/futurebot
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
